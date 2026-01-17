@@ -50,24 +50,25 @@ window.addEventListener('click', function(e) {
     }
 });
 
-// Handle visitor form submission (dummy form)
+// Handle visitor form submission (Google Forms integration)
 visitorForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+    // Let the form submit to Google Forms naturally
     
-    // Get form values
+    // Get form values for personalized message
     const name = document.getElementById('visitor-name').value;
     const email = document.getElementById('visitor-email').value;
-    const phone = document.getElementById('visitor-phone').value;
     
-    // Show success message
-    alert(`Thank you for registering, ${name}! We'll send confirmation details to ${email}.`);
-    
-    // Reset form
-    visitorForm.reset();
-    
-    // Close modal
-    visitorModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    // Show success message after a short delay (form submits in background)
+    setTimeout(() => {
+        alert(`Thank you for registering, ${name}! We'll send confirmation details to ${email}.`);
+        
+        // Reset form
+        visitorForm.reset();
+        
+        // Close modal
+        visitorModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }, 500);
 });
 
 // Handle participant form submission (Google Forms integration)
